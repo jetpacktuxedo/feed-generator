@@ -4,6 +4,8 @@ import {
 } from './lexicon/types/com/atproto/sync/subscribeRepos'
 import { FirehoseSubscriptionBase, getOpsByType } from './util/subscription'
 
+// The following DID list contains users sourced from this spreadsheet
+// https://docs.google.com/spreadsheets/d/1Vet9wnfzNDl5z5ZElvJxAFdXxSMVMxAGqIKuWUocdbs/edit#gid=0
 const dids = [
 		"did:plc:odqmsar3ikz5ubokya4sempk",
 		"did:plc:v4h6fr7ke4exrqnj36ozhzln",
