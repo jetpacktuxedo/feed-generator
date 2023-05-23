@@ -44,7 +44,7 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
 
     // Log all posts from users in the list
     for (const post of ops.posts.creates) {
-      if (post.author in dids) {
+      if (dids.includes(post.author)) {
         console.log(post.record.text)
         console.log(post.author)
       }
@@ -54,8 +54,9 @@ export class FirehoseSubscription extends FirehoseSubscriptionBase {
     const postsToCreate = ops.posts.creates
       .filter((create) => {
         // only index posts from users in the list that contain the word "art"
-        return create.record.text.toLowerCase().includes('art') &&
-                create.author in dids
+        return dids.includes(create.author)
+            // I don't like this... figure out how to check if the post includes media instead?
+            // && create.record.text.toLowerCase().includes('art')
       })
       .map((create) => {
         // map matched posts to a db row
